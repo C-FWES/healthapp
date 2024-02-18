@@ -26,11 +26,13 @@ const QuestionModal = ({question, answer, money, show, onHide, onDone, onAward})
     }
 
     return (
-        <Modal isOpen={show} onRequestClose={onHide}
+        <Modal isOpen={show} 
+        onRequestClose={onHide} 
+        shouldCloseOnOverlayClick={true}
         style={{
             overlay: {
                 backgroundColor: "rgba(0, 0, 0, 0.5)",
-                zIndex: "999",
+          
             },
             content: {
                 backgroundColor: "blue",
