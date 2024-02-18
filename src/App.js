@@ -1,23 +1,37 @@
 import logo from './logo.svg';
 import './App.css';
 
+import GridItem from './GridItem';
+import { useState } from 'react';
+
 function App() {
+
+  const possibleQuestions = [["$100", "Who is biden?", "the president"]]
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <div className='jeopardyGridContainer'>
+          <div className='jeopardyGridWrapper'>
+            <div className='gridGroup'>
+              <div className='groupTitle'>Title</div>
+            <GridItem params={possibleQuestions[0]}></GridItem>
+            <GridItem params={possibleQuestions[0]}></GridItem>
+            <GridItem params={possibleQuestions[0]}></GridItem>
+            </div>
+            <div className='gridGroup'>
+            <div className='groupTitle'>Title</div>
+            <GridItem params={possibleQuestions[0]}></GridItem>
+            <GridItem params={possibleQuestions[0]}></GridItem>
+            <GridItem params={possibleQuestions[0]}></GridItem>
+            </div>
+            <div className='gridGroup'>
+            <div className='groupTitle'>Title</div>
+            <GridItem params={possibleQuestions[0]}></GridItem>
+            <GridItem params={possibleQuestions[0]}></GridItem>
+            <GridItem params={possibleQuestions[0]}></GridItem>
+            </div>
+          </div>
+        </div>
     </div>
   );
 }
