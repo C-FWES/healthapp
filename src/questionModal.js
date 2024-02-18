@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import Modal from "react-modal";
 
-const QuestionModal = ({question, answer, show, onHide, onDone}) => {
+const QuestionModal = ({question, answer, money, show, onHide, onDone, onAward}) => {
 
     const [showAnswer, setShowAnswer] = useState(false);
 
@@ -13,6 +13,16 @@ const QuestionModal = ({question, answer, show, onHide, onDone}) => {
 
     const handleClose = () => {
         onHide();
+    }
+
+    const numeric = (str) => {
+        let result = str.slice(1);
+        return parseInt(result);
+    }
+
+    const handleScore = (team) => {
+        const award = numeric(money);
+        onAward(team, award);
     }
 
     return (
@@ -40,6 +50,12 @@ const QuestionModal = ({question, answer, show, onHide, onDone}) => {
         }}>
             <div className="modalWrapper" onClick={() => handleAnswer(true)}>
             <div className="cardText">{showAnswer ? answer : question}</div>
+            <div className="teamSelectContainer">
+                <button className="teamSelectButton" onClick={() => handleScore('a')}>Score A</button>
+                <button className="teamSelectButton" onClick={() => handleScore('b')}>Score B</button>
+                <button className="teamSelectButton" onClick={() => handleScore('c')}>Score C</button>
+                <button className="teamSelectButton" onClick={() => handleScore('d')}>Score D</button>
+            </div>
             </div>
         </Modal>
     )
